@@ -1,9 +1,10 @@
 body {
   margin: 0;
+  box-sizing: border-box;
   
-    font-family: 'Hubballi', cursive;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hubballi', cursive;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

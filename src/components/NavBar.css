@@ -5,17 +5,22 @@
     display: flex; 
     align-items: center;
     height: 100px;
+    padding: 0px 30px 0px 30px;
 }
 .logo{
     flex: 1;
-    padding-left: 50px;
 }
 .titleNavBar{
     font-size: 4vw;
 }
 
+.list{
+    display: flex;
+    gap: 20px;
+}
+
+
 .list li{
+    font-weight: bold;
     list-style: none;
-    display: inline-block;
-    margin: 10px;
 }
