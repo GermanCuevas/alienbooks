@@ -1,0 +1,7 @@
+.numberShop{
+font-size: 2rem;
+}
+.boxShop{
+display: flex;
+align-items: center;
+}
