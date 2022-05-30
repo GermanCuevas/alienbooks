@@ -1,7 +1,6 @@
 import "./Item.css";
 
 const Item = ({ id, name, price, image, autor }) => {
-  console.log(image);
   return (
     <div className="cardBook">
       <div className="divCardBook">

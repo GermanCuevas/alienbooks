@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = ({ initCount }) => {
+const ItemCount = ({ initCount, stock }) => {
   const [count, setCount] = useState(initCount);
 
   const increaseCounter = () => {
-    setCount(count + 1);
+    count < stock && setCount(count + 1);
   };
 
   const lowerCounter = () => {
-    setCount(count - 1);
+    count > initCount && setCount(count - 1);
   };
 
   return (

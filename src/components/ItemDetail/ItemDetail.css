@@ -1,0 +1,21 @@
+.cardDetail{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.divBookById{
+    width: 25vw;
+    height: 80vh;
+}
+
+.imageBookById{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    object-position: center top;
+}
+
+.divInfoBookById{
+    width: 250px;
+    text-align: center;
+}
