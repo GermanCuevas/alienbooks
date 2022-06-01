@@ -1,4 +1,5 @@
 import "./ItemDetail.css";
+import ItemCount from "../ItemCount/ItemCount";
 const ItemDetail = ({ book }) => {
   console.log(book);
   return (
@@ -17,6 +18,7 @@ const ItemDetail = ({ book }) => {
           <p>Precio : ${book.price}</p>
         </div>
       </div>
+      <ItemCount initCount={1} stock={3} />
     </>
   );
 };

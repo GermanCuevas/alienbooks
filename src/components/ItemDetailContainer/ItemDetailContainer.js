@@ -1,22 +1,27 @@
 import { getBookById } from "../../asyncmock";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.css";
 
 const ItemDetailCotainer = () => {
   const [book, setBook] = useState({});
 
+  const { productId } = useParams();
+
   useEffect(() => {
-    getBookById().then((response) => {
+    getBookById(parseInt(productId)).then((response) => {
       console.log(response);
       setBook(response);
     });
-  }, []);
+  }, [productId]);
 
   return (
     <>
       <div className="detailContainer">
-        <ItemDetail book={book} />
+        {(Object.keys(book).length === 0 && (
+          <img src="/gif/loader.gif" alt="gif loader" />
+        )) || <ItemDetail book={book} />}
       </div>
     </>
   );

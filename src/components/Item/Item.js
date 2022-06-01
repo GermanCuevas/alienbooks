@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Item.css";
 
 const Item = ({ id, name, price, image, autor }) => {
@@ -13,6 +14,9 @@ const Item = ({ id, name, price, image, autor }) => {
       <p>Titulo: {name}</p>
       <p>Autor: {autor}</p>
       <p>Precio: ${price}</p>
+      <Link className="linkButton" to={`/detail/${id}`}>
+        Detalles
+      </Link>
     </div>
   );
 };
