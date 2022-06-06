@@ -18,7 +18,7 @@ const ItemListContainer = (props) => {
           setBooks(response);
         });
   }, [categoryId]);
-  console.log(categoryId);
+
   return (
     <>
       <div className="titleContainer">

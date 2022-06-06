@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = ({ initCount, stock }) => {
-  console.log(initCount);
+const ItemCount = ({ initCount, stock, onAdd }) => {
   const [count, setCount] = useState(initCount);
 
   const increaseCounter = () => {
@@ -14,11 +13,20 @@ const ItemCount = ({ initCount, stock }) => {
   };
 
   return (
-    <div className="countDiv">
-      <button onClick={lowerCounter}>-</button>
-      <span>{count}</span>
-      <button onClick={increaseCounter}>+</button>
-    </div>
+    <>
+      <div className="countDiv">
+        <button className="buttonCount" onClick={lowerCounter}>
+          -
+        </button>
+        <span>{count}</span>
+        <button className="buttonCount" onClick={increaseCounter}>
+          +
+        </button>
+      </div>
+      <button onClick={() => onAdd(count)} className="buttonCount">
+        Agregar al carrito
+      </button>
+    </>
   );
 };
 

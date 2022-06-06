@@ -4,16 +4,17 @@
     align-items: center;
     gap: 20px;
 }
-.countDiv button{
-    width: 150px;
+.buttonCount{
+    width: 120px;
     border-radius: 10px;
-    font-size: 2rem;
+    margin: 10px;
+    font-size: 1.5rem;
 }
 
 .countDiv span{
     flex: 0.2;
-    font-size: 3rem;
-    border: 2px solid green;
+    font-size: 2rem;
     border-radius: 10px;
     text-align: center;
+    padding: 5px;
 }
