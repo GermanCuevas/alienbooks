@@ -28,6 +28,36 @@ const books = [
       "Un futuro invadido por microprocesadores, en el que la información es la materia prima. Vaqueros como Henry Dorrett Case se ganan la vida hurtando información, traspasando defensas electrónicas, bloques tangibles y luminosos, como rascacielos geométricos.",
     category: "CienciaFiccion",
   },
+  {
+    id: 4,
+    autor: "Stephen King",
+    name: "Fairy Tale",
+    price: 7200,
+    image: "/portadasLibros/fairyTale.jpg",
+    description:
+      "Charlie Reader, un estudiante de 17 años, es el protagonista de la historia. Aunque es un joven relativamente normal, su vida está marcada por traumas. Su madre murió atropellada cuando él tenía diez años, lo que llevó a su padre a consumir alcohol de forma desmedida.",
+    category: "Suspenso",
+  },
+  {
+    id: 5,
+    autor: "Isaac Asimov",
+    name: "La Trilogia de la Fundacion",
+    price: 7200,
+    image: "/portadasLibros/fundacion.jpg",
+    description:
+      "La capital del Imperio es Trántor, nido de intrigas y corrupción. Gracias a su ciencia, fundada en el estudio matemático de los hechos históricos y el comportamiento de las masas, el psicohistoriador Hari Seldon prevé la caída del Imperio y el retorno a la barbarie durante varios milenios.",
+    category: "CienciaFiccion",
+  },
+  {
+    id: 6,
+    autor: "John Katzenbach",
+    name: "El psicoanalista",
+    price: 7200,
+    image: "/portadasLibros/psicoanalista.jpg",
+    description:
+      "Frederick Starks, psicoanalista de larga experiencia y vida tranquila, recibe una amenaza anónima. Tendrá que emplear toda su astucia para averiguar quién es el autor de esa misiva que promete hacerle la existencia imposible.",
+    category: "Suspenso",
+  },
 ];
 
 export const getBooks = () => {
