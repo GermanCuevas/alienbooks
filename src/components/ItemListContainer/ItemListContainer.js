@@ -30,7 +30,9 @@ const ItemListContainer = (props) => {
         {books.length !== 0 ? (
           <ItemList books={books} />
         ) : (
-          <img src="/gif/loader.gif" alt="gif loader" />
+          <div className="divLoader">
+            <img className="loader" src="/gif/loader.gif" alt="gif loader" />
+          </div>
         )}
       </div>
     </>

@@ -1,11 +1,14 @@
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import InputCount from "../InputCount/InputCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-const ItemDetail = ({ book }) => {
+import CartContext from "../../Context/CartContext";
+const ItemDetail = ({ image, name, description, price, autor }) => {
   const [countType, setCountType] = useState("input");
   const [quantity, setQuantity] = useState(0);
+
+  const { addItem } = useContext(CartContext);
 
   const Count = countType === "input" ? InputCount : ItemCount;
 
@@ -19,14 +22,14 @@ const ItemDetail = ({ book }) => {
         <div className="divBookById">
           <img
             className="imageBookById"
-            src={book.image}
-            alt={`Portada de ` + book.name}
+            src={image}
+            alt={`Portada de ` + name}
           />
         </div>
         <div className="divInfoBookById">
-          <h1>{book.name + " de " + book.autor}</h1>
-          <p>{book.description}</p>
-          <p>Precio : ${book.price}</p>
+          <h1>{name + " de " + autor}</h1>
+          <p>{description}</p>
+          <p>Precio : ${price}</p>
 
           {quantity > 0 ? (
             <Link className="linkShop" to={"./cart"}>

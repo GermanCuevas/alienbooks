@@ -11,16 +11,18 @@ const ItemDetailCotainer = () => {
 
   useEffect(() => {
     getBookById(parseInt(productId)).then((response) => {
+      console.log(response);
       setBook(response);
     });
   }, [productId]);
 
+  console.log(book);
   return (
     <>
       <div className="detailContainer">
         {(Object.keys(book).length === 0 && (
           <img src="/gif/loader.gif" alt="gif loader" />
-        )) || <ItemDetail book={book} />}
+        )) || <ItemDetail {...book} />}
       </div>
     </>
   );
