@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./InputCount.css";
-const InputCount = ({ initCount, stock, onAdd }) => {
+const InputCount = ({ initCount = 1, stock, onAdd }) => {
   const [count, setCount] = useState(initCount);
   const handleChange = (e) => {
-    if (e.target.value <= stock && e.target.value >= initCount) {
+    if (e.target.value <= stock && e.target.value >= 1) {
       setCount(parseInt(e.target.value));
     }
   };

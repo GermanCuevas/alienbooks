@@ -1,0 +1,22 @@
+.divCart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divCartEmpty{
+    width: 400px;
+    text-align: center;
+}
+.cartEmptyImg{
+    width: 100%;
+
+}
+
+.btnCart{
+    background-color: #c0257f;
+    background-image: linear-gradient(326deg, #bb1d79 0%, #ffa69e 74%);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bolder;
+}

@@ -11,12 +11,10 @@ const ItemDetailCotainer = () => {
 
   useEffect(() => {
     getBookById(parseInt(productId)).then((response) => {
-      console.log(response);
       setBook(response);
     });
   }, [productId]);
 
-  console.log(book);
   return (
     <>
       <div className="detailContainer">

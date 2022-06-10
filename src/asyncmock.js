@@ -7,6 +7,7 @@ const books = [
     image: "/portadasLibros/hyperion.jpg",
     description: `En el siglo XXVIII: el mundo de Hyperion, más allá de la Red de Mundos, se encuentran las Tumbas del Tiempo, artefactos enviados desde el futuro lejano que están a punto de abrirse y encierran un terrible secreto relacionado con una imposible criatura que solo se comunica mediante la muerte, el Alcaudón, o Señor del Dolor, considerado por algunos como una deidad y por otros como avatar de la inminente expiación humana. Siete personas se dirigen en Hyperion a una última peregrinación a su encuentro con el Alcaudón.`,
     category: "CienciaFiccion",
+    stock: 5,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const books = [
     description:
       "El profesor de simbología Robert Langdon se despierta en un hospital en mitad de la noche, desorientado y con una herida en la cabeza. No recuerda nada de las últimas treinta y seis horas. Ni cómo ha llegado hasta allí, ni el origen del macabro objeto que los médicos descubren entre sus pertenencias.",
     category: "Suspenso",
+    stock: 7,
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const books = [
     description:
       "Un futuro invadido por microprocesadores, en el que la información es la materia prima. Vaqueros como Henry Dorrett Case se ganan la vida hurtando información, traspasando defensas electrónicas, bloques tangibles y luminosos, como rascacielos geométricos.",
     category: "CienciaFiccion",
+    stock: 10,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const books = [
     description:
       "Charlie Reader, un estudiante de 17 años, es el protagonista de la historia. Aunque es un joven relativamente normal, su vida está marcada por traumas. Su madre murió atropellada cuando él tenía diez años, lo que llevó a su padre a consumir alcohol de forma desmedida.",
     category: "Suspenso",
+    stock: 2,
   },
   {
     id: 5,
@@ -47,6 +51,7 @@ const books = [
     description:
       "La capital del Imperio es Trántor, nido de intrigas y corrupción. Gracias a su ciencia, fundada en el estudio matemático de los hechos históricos y el comportamiento de las masas, el psicohistoriador Hari Seldon prevé la caída del Imperio y el retorno a la barbarie durante varios milenios.",
     category: "CienciaFiccion",
+    stock: 4,
   },
   {
     id: 6,
@@ -57,6 +62,7 @@ const books = [
     description:
       "Frederick Starks, psicoanalista de larga experiencia y vida tranquila, recibe una amenaza anónima. Tendrá que emplear toda su astucia para averiguar quién es el autor de esa misiva que promete hacerle la existencia imposible.",
     category: "Suspenso",
+    stock: 5,
   },
 ];
 
