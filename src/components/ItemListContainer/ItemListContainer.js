@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getBooks } from "../../asyncmock";
 import { useParams } from "react-router-dom";
 import { getBookCategory } from "../../asyncmock";
+import TituloFilter from "../TituloFilter/TituloFilter";
 
 const ItemListContainer = (props) => {
   const [books, setBooks] = useState([]);
@@ -23,8 +24,7 @@ const ItemListContainer = (props) => {
     <>
       <div className="titleContainer">
         <h1>{props.title}</h1>
-        {categoryId === "cienciaficcion" && <h2>Ciencia ficcion</h2>}
-        {categoryId === "suspenso" && <h2>Suspenso</h2>}
+        <TituloFilter category={categoryId} />
       </div>
       <div className="cardsContainer">
         {books.length !== 0 ? (

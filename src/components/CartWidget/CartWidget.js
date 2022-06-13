@@ -10,12 +10,14 @@ const CartWidget = () => {
 
   return (
     <>
-      <Link className="linkShop" to="/cart">
-        <div className="boxShop">
-          <img src="icons/shop64.png" alt="Shopping cart" />
-          <span className="numberShop">{quantity}</span>
-        </div>
-      </Link>
+      {quantity !== 0 && (
+        <Link className="linkShop" to="/cart">
+          <div className="boxShop">
+            <img src="../icons/shop64.png" alt="Shopping cart" />
+            <span className="numberShop">{quantity}</span>
+          </div>
+        </Link>
+      )}
     </>
   );
 };

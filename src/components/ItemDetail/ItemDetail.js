@@ -34,7 +34,7 @@ const ItemDetail = ({ image, name, description, price, autor, id, stock }) => {
 
           {quantity > 0 ? (
             <Link className="linkShop" to={"/cart"}>
-              Al Carrito
+              Terminar compra
             </Link>
           ) : (
             <>
