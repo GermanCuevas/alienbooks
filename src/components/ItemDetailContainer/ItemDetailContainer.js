@@ -1,7 +1,9 @@
-import { getBookById } from "../../asyncmock";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../service/firebase";
+
 import "./ItemDetailContainer.css";
 
 const ItemDetailCotainer = () => {
@@ -10,9 +12,17 @@ const ItemDetailCotainer = () => {
   const { productId } = useParams();
 
   useEffect(() => {
-    getBookById(parseInt(productId)).then((response) => {
+    getDoc(doc(db, "books", productId))
+      .then((response) => {
+        console.log(response);
+        const product = { id: response.id, ...response.data() };
+        setBook(product);
+      })
+      .catch(console.log);
+
+    /* getBookById(parseInt(productId)).then((response) => {
       setBook(response);
-    });
+    }); */
   }, [productId]);
 
   return (

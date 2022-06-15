@@ -1,10 +1,10 @@
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
 import { useState, useEffect } from "react";
-import { getBooks } from "../../asyncmock";
 import { useParams } from "react-router-dom";
-import { getBookCategory } from "../../asyncmock";
 import TituloFilter from "../TituloFilter/TituloFilter";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../service/firebase";
 
 const ItemListContainer = (props) => {
   const [books, setBooks] = useState([]);
@@ -12,12 +12,25 @@ const ItemListContainer = (props) => {
   const { categoryId } = useParams();
 
   useEffect(() => {
-    setBooks([]);
+    const collectionRef = categoryId
+      ? query(collection(db, "books"), where("category", "==", categoryId))
+      : collection(db, "books");
+
+    getDocs(collectionRef)
+      .then((response) => {
+        const products = response.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+        setBooks(products);
+      })
+      .catch(console.log);
+    /*  setBooks([]);
+
     categoryId
       ? getBookCategory(categoryId).then((response) => setBooks(response))
       : getBooks().then((response) => {
           setBooks(response);
-        });
+        }); */
   }, [categoryId]);
 
   return (
