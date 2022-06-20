@@ -7,6 +7,15 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart, clearCart, totalCart } = useContext(CartContext);
 
+  /*  const updateDocument = () => {
+    console.log(cart[0]);
+    const id = cart[0].id;
+
+    const docRef = doc(db, "books", id);
+
+    updateDoc(docRef, { stock: 1000 });
+  }; */
+
   return (
     <div className="divCart">
       <h1>Carrito</h1>
@@ -38,7 +47,9 @@ const Cart = () => {
 
             <div className="divTotal">
               <p>TOTAL: ${totalCart()}</p>
-              <button className="btnCart">CREAR ORDEN</button>
+              <Link to="/checkout">
+                <button className="btnCart">CREAR ORDEN</button>
+              </Link>
             </div>
           </>
         )}

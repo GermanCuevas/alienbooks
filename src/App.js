@@ -5,28 +5,36 @@ import ItemDetailCotainer from "./components/ItemDetailContainer/ItemDetailConta
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./Context/CartContext";
 import Cart from "./components/Cart/Cart";
+import Form from "./components/Form/Form";
+import { NotificationProvider } from "./components/Notification/Notification";
 function App() {
   return (
     <div className="App">
       <CartContextProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ItemListContainer title="Bienvenido a nuestra tienda" />
-              }
-            />
-            <Route path="*" element={<h1>Error de ruta...</h1>} />
-            <Route path="/detail/:productId" element={<ItemDetailCotainer />} />
-            <Route
-              path="/category/:categoryId"
-              element={<ItemListContainer title="Resultados..." />}
-            />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-        </BrowserRouter>
+        <NotificationProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <ItemListContainer title="Bienvenido a nuestra tienda" />
+                }
+              />
+              <Route path="*" element={<h1>Error de ruta...</h1>} />
+              <Route
+                path="/detail/:productId"
+                element={<ItemDetailCotainer />}
+              />
+              <Route
+                path="/category/:categoryId"
+                element={<ItemListContainer title="Resultados..." />}
+              />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Form />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </NotificationProvider>
       </CartContextProvider>
     </div>
   );
