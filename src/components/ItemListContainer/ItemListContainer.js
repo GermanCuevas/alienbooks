@@ -1,5 +1,6 @@
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
+import Loader from "../Loader/Loader";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import TituloFilter from "../TituloFilter/TituloFilter";
@@ -8,6 +9,7 @@ import { db } from "../../service/firebase";
 
 const ItemListContainer = (props) => {
   const [books, setBooks] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   const { categoryId } = useParams();
 
@@ -23,15 +25,13 @@ const ItemListContainer = (props) => {
         });
         setBooks(products);
       })
-      .catch(console.log);
-    /*  setBooks([]);
-
-    categoryId
-      ? getBookCategory(categoryId).then((response) => setBooks(response))
-      : getBooks().then((response) => {
-          setBooks(response);
-        }); */
+      .catch(console.log)
+      .finally(() => setLoader(false));
   }, [categoryId]);
+
+  if (loader) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -40,13 +40,7 @@ const ItemListContainer = (props) => {
         <TituloFilter category={categoryId} />
       </div>
       <div className="cardsContainer">
-        {books.length !== 0 ? (
-          <ItemList books={books} />
-        ) : (
-          <div className="divLoader">
-            <img className="loader" src="/gif/loader.gif" alt="gif loader" />
-          </div>
-        )}
+        <ItemList books={books} />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../Context/CartContext";
 import { useNotification } from "../Notification/Notification";
+
 const ItemDetail = ({ image, name, description, price, autor, id, stock }) => {
   const [countType, setCountType] = useState("input");
   const [quantity, setQuantity] = useState(0);

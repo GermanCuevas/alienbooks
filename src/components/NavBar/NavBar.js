@@ -48,14 +48,6 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive ? "linkSize colorActiveLink" : "linkSize "
             }
-            to="/contacto"
-          >
-            Contacto
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "linkSize colorActiveLink" : "linkSize "
-            }
             to="/nosotros"
           >
             Nosotros

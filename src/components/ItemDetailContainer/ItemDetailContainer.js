@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import Loader from "../Loader/Loader";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../service/firebase";
 
@@ -8,28 +9,50 @@ import "./ItemDetailContainer.css";
 
 const ItemDetailCotainer = () => {
   const [book, setBook] = useState({});
+  const [loader, setLoader] = useState(true);
+  const [bookExist, setBookExist] = useState(true);
+
+  const navigate = useNavigate();
 
   const { productId } = useParams();
 
   useEffect(() => {
     getDoc(doc(db, "books", productId))
       .then((response) => {
-        const product = { id: response.id, ...response.data() };
-        setBook(product);
+        if (response.data()) {
+          const product = { id: response.id, ...response.data() };
+          setBook(product);
+        } else {
+          setBookExist(false);
+          setTimeout(() => {
+            navigate("../");
+          }, 4000);
+          throw new Error("Posible error en el id");
+        }
       })
-      .catch(console.log);
+      .catch(console.warn)
+      .finally(() => setLoader(false));
+  }, [productId, navigate]);
 
-    /* getBookById(parseInt(productId)).then((response) => {
-      setBook(response);
-    }); */
-  }, [productId]);
+  if (loader) {
+    return <Loader />;
+  }
+
+  if (!bookExist) {
+    return (
+      <div className="titleNoExist">
+        <h2>
+          El codigo del libro que busca no esta disponible, o fue modificado.
+        </h2>
+        <h3>Redirigiendo a la tienda...</h3>
+      </div>
+    );
+  }
 
   return (
     <>
       <div className="detailContainer">
-        {(Object.keys(book).length === 0 && (
-          <img src="/gif/loader.gif" alt="gif loader" />
-        )) || <ItemDetail {...book} />}
+        <ItemDetail {...book} />
       </div>
     </>
   );

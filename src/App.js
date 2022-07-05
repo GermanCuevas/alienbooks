@@ -7,6 +7,7 @@ import { CartContextProvider } from "./Context/CartContext";
 import Cart from "./components/Cart/Cart";
 import Form from "./components/Form/Form";
 import { NotificationProvider } from "./components/Notification/Notification";
+import Nosotros from "./components/Nosotros/Nosotros";
 function App() {
   return (
     <div className="App">
@@ -31,7 +32,8 @@ function App() {
                 element={<ItemListContainer title="Resultados..." />}
               />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Form />}></Route>
+              <Route path="/checkout" element={<Form />} />
+              <Route path="/nosotros" element={<Nosotros />} />
             </Routes>
           </BrowserRouter>
         </NotificationProvider>
